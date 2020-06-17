@@ -1,0 +1,49 @@
+<script>
+    function count() {
+        var num = 1;
+        return function() {
+            num++;
+            return num;
+
+        }
+    }
+    var temp = count();
+    console.log(temp());
+    console.log(temp());
+    console.log(temp());
+    console.log(temp());
+    console.log(temp());
+    console.log(temp());
+    console.log(temp());
+    console.log(temp());
+    console.log(temp());
+
+    function c() {
+        return function() {
+            return 77;
+
+        }
+    }
+
+    function b() {
+        return 11;
+    }
+
+    function a() {
+        alert(1);
+    }
+
+    var bb = b();
+    var aa = a();
+    var cc = c();
+    console.log(bb);
+    console.log(aa);
+    console.log(cc());
+
+
+
+    // var my = a;
+    // console.log(my);
+    // my();
+    // a();
+</script>

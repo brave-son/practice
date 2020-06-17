@@ -1,35 +1,13 @@
-<script></script>
-
-
-
-
-
-
-<table border="1" style="width : 300; height : 150">
-    table +='
-    <tr>
-        <th> 번호 </th>
-        <th> 제목 </th>
-        <th> 작성자 </th>
-    </tr>
-    <tr>
-        <td> 2 </td>
-        <td> 자바스크립트 </td>
-        <td> 웹개발자 </td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>javaScript</td>
-        <td>web Developer</td>
-    </tr>''
-
-</table>
-
-
-
-</script>
 <script>
-    var n = prompt('숫자를 입력해주세요.');
-    // 코드 작성
-    var arr[] = n;
+    var table = '';
+    table += '<table border = "1">';
+    table += '<tr>';
+    table += '<td>번호</td><td>제목</td><td>작성자</td>';
+    table += '</tr>';
+    table += '<tr>';
+    table += '<td>2</td><td>자바스크립트</td><td>웹개발자</td>';
+    table += '</tr>';
+    table += '<tr>';
+    table += '<td>1</td><td>javascript</td><td>web developer</td>';
+    document.write(table);
 </script>

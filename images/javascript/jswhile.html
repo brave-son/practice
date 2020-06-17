@@ -1,0 +1,20 @@
+<script>
+    var input = Math.random() * 10 + 1;
+    input = parseInt(input);
+
+    var isContinue = true;
+    while (isContinue) {
+        var number = prompt("숫자 맞추기");
+        if (input == number) {
+            alert("숫자 : " + input + " // ㅊㅋㅊㅋ");
+            isContinue = false;
+        } else {
+            alert("땡");
+            if (input > number) {
+                alert("입력된 숫자가 더 적음");
+            } else {
+                alert("입력된 숫자가 더 큼");
+            }
+        }
+    }
+</script>

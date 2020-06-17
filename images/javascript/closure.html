@@ -1,0 +1,19 @@
+<script>
+    function getCount() {
+        var count = 5;
+        return function() {
+            return count--;
+        }
+    }
+    var nowCount = getCount();
+
+    function decreaseCount() {
+        var check = nowCount();
+        document.body.innerHTML = '남은횟수 : ' + check;
+        if (check == 0) {
+            alert('부정행위로 시험을 종료합니다.');
+        }
+    }
+</script>
+
+<body onblur='decreaseCount()'></body>
