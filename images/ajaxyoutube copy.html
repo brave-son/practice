@@ -7,8 +7,8 @@
         var xmlHttp = new XMLHttpRequest();
 
         function send() {
-            var search = document.getElementById("search").value;
-            var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyDplFSGEJmjWtXB1lfIMzcktij21FUk8DY&q=" + search;
+
+            var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyDplFSGEJmjWtXB1lfIMzcktij21FUk8DY&q=원피스";
             // 통신 상태에 따라 동작될 callback 함수 지정
             xmlHttp.onreadystatechange = callback;
             // http메소드, 요청주소, 비동기/동기 여부
@@ -38,27 +38,28 @@
                         404(Not Found) : 페이지 없음
                         500(Internal Server Error) : 서버 오류
                 */
-                tag = '<div>';
+                tag = '';
                 if (xmlHttp.status == 200) {
                     temp = xmlHttp.responseText;
                     temp = JSON.parse(temp);
                     var items = temp.items;
-                    for (i = 0; i < items.length; i++) {
-                        var title = items[i].snippet.title;
-                        var thumbnails = items[i].snippet.thumbnails.medium.url;
-                        var videoId = items[i].id.videoId;
+                    for (var idx in items) {
+                        var item = items[idx];
+                        var videoId = item.id.videoId;
+                        var snippet = item.snippet;
+                        var img = snippet.thumbnails.default.url;
+                        var title = snippet.title;
 
-                        tag += '<div>';
-                        tag += `<div>${title}</div>`;
-                        tag += `<img src=${thumbnails}></img><br>`;
-                        tag += `<iframe src ="http://www.youtube.com/embed/${videoId}" width="400" height ="300"></iframe>`;
+                        tag += `<h3>${title}</h3>`;
+                        tag += `<img src=${img}><br>`;
+                        tag += `<iframe src="http://www.youtube.com/embed/${videoId}" width="400" height ="300"></iframe>`;
                         tag += '</div>'
 
 
 
                     }
 
-                    tag += '</div>';
+
 
 
                     document.querySelector('body').innerHTML += tag;
@@ -69,10 +70,8 @@
     </script>
 </head>
 
-<body style="height: auto;">
-    <input type='text' id="search">
-    <input type="button" name="" value="찾기" onclick="send()">
-    <img src="" id="thumbnails"></div>
+<body>
+    <input type="button" value="요청" onclick="send()">
 
 
 </body>
